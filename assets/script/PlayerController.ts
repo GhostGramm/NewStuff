@@ -16,6 +16,8 @@ export class PlayerController extends Component {
     accelerationSpeed : number = 0;
     @property
     speed : number = 0;
+    @property
+    gravity : number = 0;
 
     private newPos = new Vec3();
     private movingRight = false;
@@ -31,7 +33,6 @@ export class PlayerController extends Component {
     }
 
     onKeyPressed(event : EventKeyboard){
-        
         switch(event.keyCode){
             case macro.KEY.a:
                 this.movingLeft = true;
@@ -61,6 +62,7 @@ export class PlayerController extends Component {
     // }
 
     update (deltaTime: number) {
+
         if(this.movingLeft){
             // this.node.setPosition(50,0);
             this.newPos.x -= this.speed;
