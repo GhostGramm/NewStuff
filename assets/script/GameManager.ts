@@ -12,6 +12,10 @@ export class GameManager extends Component {
     @property(Node)
     ground: Node = null;
 
+    generateStar = false;
+    starTimer : number = 5;
+    starTimerReset : number = 5;
+
     randX : number;
     randY : number;
     randZ : number;
@@ -21,6 +25,29 @@ export class GameManager extends Component {
     @property
     maxStarDuration: number = 0;
     groundY : any;
+
+
+    starTimerFunc(deltaTime : number){
+        if(this.generateStar){
+            this.starTimer -= deltaTime;
+            this.spawnStar();
+            if(this.starTimer <= 0){
+                this.generateStar = false;
+
+            }
+        }
+    }
+
+    test(deltaTime : number){
+        if(this.starTimer != 0){
+            this.starTimer -= deltaTime;
+            if(this.starTimer == 0){
+                console.log("timer is 0");
+                this.spawnStar();
+                this.starTimer = this.starTimerReset;
+            }
+        }
+    }
 
     spawnStar() {
         var starIns = instantiate(this.star);
@@ -38,8 +65,13 @@ export class GameManager extends Component {
     }
 
     update(deltaTime: number) {
+        this.starTimer -= deltaTime
         this.randX = randomRange(-450,450)
         this.randY = randomRange(287,-285);
-        this.spawnStar();
+
+        if(this.starTimer <= 0){
+            this.spawnStar();
+            this.starTimer = this.starTimerReset;
+        }
     }
 }
