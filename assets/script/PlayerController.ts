@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, v2, systemEvent, SystemEventType, SystemEvent, EventKeyboard, macro, Vec2, Vec3 } from 'cc';
+import { _decorator, Component, Node, v2, systemEvent, SystemEventType, SystemEvent, EventKeyboard, macro, Vec2, Vec3, Contact2DType, Collider2D, IPhysics2DContact, BoxCollider2D } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -18,6 +18,7 @@ export class PlayerController extends Component {
     speed : number = 0;
     @property
     gravity : number = 0;
+    scoreCount : number = 0;
 
     private newPos = new Vec3();
     private movingRight = false;
@@ -32,7 +33,18 @@ export class PlayerController extends Component {
     start () {
         systemEvent.on(SystemEvent.EventType.KEY_UP,this.onKeyReleased,this);
         systemEvent.on(SystemEvent.EventType.KEY_DOWN,this.onKeyPressed,this);
+
+        let collider = this.getComponent(BoxCollider2D);
+        console.log(collider);
+        if (collider) {
+            collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
+        }
     }
+
+    onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+        this.addScore();
+    }
+    
 
     onKeyPressed(event : EventKeyboard){
         switch(event.keyCode){
@@ -68,6 +80,11 @@ export class PlayerController extends Component {
                 this.movingDown = false;
                 break;
         }
+    }
+
+    addScore(){
+        this.scoreCount = this.scoreCount + 1;
+        console.log("your score is "+ this.scoreCount)
     }
 
     // setJumpAction(){

@@ -1,5 +1,6 @@
 
 import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange } from 'cc';
+import { Star } from './star';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -11,10 +12,11 @@ export class GameManager extends Component {
     star: Prefab = null;
     @property(Node)
     ground: Node = null;
+    starIns : any;
 
     generateStar = false;
-    starTimer : number = 5;
-    starTimerReset : number = 5;
+    starTimer : number = 2;
+    starTimerReset : number = 2;
 
     randX : number;
     randY : number;
@@ -50,9 +52,9 @@ export class GameManager extends Component {
     }
 
     spawnStar() {
-        var starIns = instantiate(this.star);
-        this.node.addChild(starIns);
-        starIns.setPosition(this.spawnPosition())
+        this.starIns = instantiate(this.star);
+        this.node.addChild(this.starIns);
+        this.starIns.setPosition(this.spawnPosition());
     }
 
     spawnPosition(){
