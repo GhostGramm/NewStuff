@@ -22,6 +22,8 @@ export class PlayerController extends Component {
     private newPos = new Vec3();
     private movingRight = false;
     private movingLeft = false;
+    private movingUp = false;
+    private movingDown = false;
     // private speed = 50;
 
 
@@ -42,6 +44,12 @@ export class PlayerController extends Component {
                 this.movingRight = true;
                 console.log("d key pressed");
                 break;
+            case macro.KEY.w:
+                this.movingUp = true;
+                break;
+            case macro.KEY.s:
+                this.movingDown = true;
+                break;
         }
     }
 
@@ -52,6 +60,12 @@ export class PlayerController extends Component {
                 break;
             case macro.KEY.d:
                 this.movingRight = false;
+                break;
+            case macro.KEY.w:
+                this.movingUp = false;
+                break;
+            case macro.KEY.s:
+                this.movingDown = false;
                 break;
         }
     }
@@ -73,6 +87,14 @@ export class PlayerController extends Component {
             this.newPos.x += this.speed;
             this.node.setPosition(this.newPos)
         }
+        if(this.movingUp){
+            this.newPos.y += this.speed;
+            this.node.setPosition(this.newPos);
+        }
+        if(this.movingDown){
+            this.newPos.y -= this.speed;
+            this.node.setPosition(this.newPos);
+        }
 
         // if(Math.abs(this.speed) > this.maximumMovementSpeed){
         //     this.speed = this.maximumMovementSpeed * this.speed/Math.abs(this.speed);
@@ -81,13 +103,4 @@ export class PlayerController extends Component {
     }
 }
 
-/**
- * [1] Class member could be defined like this.
- * [2] Use `property` decorator if your want the member to be serializable.
- * [3] Your initialization goes here.
- * [4] Your update function goes here.
- *
- * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
- * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
- * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
- */
+

@@ -23,7 +23,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 38
+      "__id__": 39
     },
     "_id": "a3888fc7-6e2b-4f9d-9e3f-5f0625209c74"
   },
@@ -48,22 +48,22 @@
         "__id__": 17
       },
       {
-        "__id__": 24
+        "__id__": 25
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 31
+        "__id__": 32
       },
       {
-        "__id__": 33
+        "__id__": 34
       },
       {
-        "__id__": 35
+        "__id__": 36
       },
       {
-        "__id__": 37
+        "__id__": 38
       }
     ],
     "_prefab": null,
@@ -436,7 +436,7 @@
     "_group": 2,
     "_type": 0,
     "_allowSleep": true,
-    "_gravityScale": 1,
+    "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
@@ -445,7 +445,7 @@
       "y": 0
     },
     "_angularVelocity": 0,
-    "_fixedRotation": false,
+    "_fixedRotation": true,
     "_id": "3697VIcBFOz6jjf/VuEz6C"
   },
   {
@@ -496,6 +496,9 @@
       },
       {
         "__id__": 23
+      },
+      {
+        "__id__": 24
       }
     ],
     "_prefab": null,
@@ -628,7 +631,7 @@
     "tag": 0,
     "_group": 4,
     "_density": 1,
-    "_sensor": true,
+    "_sensor": false,
     "_friction": 0.2,
     "_restitution": 0,
     "_offset": {
@@ -636,8 +639,35 @@
       "x": 0,
       "y": 0
     },
-    "_radius": 35,
-    "_id": "ef1yJrPnhPxoeN8DTdaInE"
+    "_radius": 39,
+    "_id": "eaNK8g1ylPt4c/Uw050GMa"
+  },
+  {
+    "__type__": "cc.RigidBody2D",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 17
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "enabledContactListener": false,
+    "bullet": false,
+    "awakeOnLoad": true,
+    "_group": 4,
+    "_type": 2,
+    "_allowSleep": true,
+    "_gravityScale": 1,
+    "_linearDamping": 0,
+    "_angularDamping": 0,
+    "_linearVelocity": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_angularVelocity": 0,
+    "_fixedRotation": true,
+    "_id": "b42vLwBbpOUrTYZgcU35/p"
   },
   {
     "__type__": "cc.Node",
@@ -646,14 +676,14 @@
       "__id__": 2
     },
     "_prefab": {
-      "__id__": 25
+      "__id__": 26
     },
     "_id": "d4jofuvPxFrpZPNFTkEKZ3"
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 24
+      "__id__": 25
     },
     "asset": {
       "__uuid__": "d7e86f57-1389-43e3-a71e-def07b458a8b",
@@ -661,7 +691,7 @@
     },
     "fileId": "e7xKkSbsRO7odUzKSjaTre",
     "instance": {
-      "__id__": 26
+      "__id__": 27
     }
   },
   {
@@ -671,13 +701,13 @@
     "mountedComponents": [],
     "propertyOverrides": [
       {
-        "__id__": 27
-      },
-      {
-        "__id__": 29
+        "__id__": 28
       },
       {
         "__id__": 30
+      },
+      {
+        "__id__": 31
       }
     ],
     "removedComponents": []
@@ -685,7 +715,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 28
+      "__id__": 29
     },
     "propertyPath": [
       "_name"
@@ -701,7 +731,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 28
+      "__id__": 29
     },
     "propertyPath": [
       "_lpos"
@@ -716,7 +746,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 28
+      "__id__": 29
     },
     "propertyPath": [
       "_lrot"
@@ -738,7 +768,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 32
+      "__id__": 33
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -765,7 +795,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 34
+      "__id__": 35
     },
     "_cameraComponent": {
       "__id__": 4
@@ -786,7 +816,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 36
+      "__id__": 37
     },
     "_alignFlags": 45,
     "_target": null,
@@ -838,16 +868,16 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 39
-    },
-    "shadows": {
       "__id__": 40
     },
-    "_skybox": {
+    "shadows": {
       "__id__": 41
     },
-    "fog": {
+    "_skybox": {
       "__id__": 42
+    },
+    "fog": {
+      "__id__": 43
     }
   },
   {

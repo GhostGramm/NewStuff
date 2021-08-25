@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Prefab, instantiate, Vec3 } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -11,6 +11,10 @@ export class GameManager extends Component {
     star: Prefab = null;
     @property(Node)
     ground: Node = null;
+
+    randX : number;
+    randY : number;
+    randZ : number;
 
     @property
     minStarDuration: number = 0;
@@ -25,15 +29,17 @@ export class GameManager extends Component {
     }
 
     spawnPosition(){
-        return new Vec3(0,0,0);
+        return new Vec3(this.randX,this.randY,0);
     }
 
     start() {
-        this.groundY = this.ground.position.x * this.ground.position.y/2;
-        console.log(this.ground.position.y);
+        // this.groundY = this.ground.position.x * this.ground.position.y/2;
+        // console.log(this.ground.position.y);
     }
 
     update(deltaTime: number) {
-
+        this.randX = randomRange(-450,450)
+        this.randY = randomRange(287,-285);
+        this.spawnStar();
     }
 }
